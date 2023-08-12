@@ -21,7 +21,7 @@ class UsersResources(MethodView):
         if username is None:
             return {"message": "No has ingresado tu username"}, 400
         
-        return {"Bienvenido"}
+        return {"message": "Bienvenido"}
     
 class UsersID(MethodView):
     def get(self, user_id):
@@ -39,5 +39,5 @@ users_blueprint.add_url_rule(
 
 users_blueprint.add_url_rule(
     "users/<user_id>",
-    view_func=Users.as_view("users_id")
+    view_func=UsersID.as_view("users_id")
 )
